@@ -476,7 +476,7 @@ function AboutPage() {
             Здесь <strong style={{ color: '#ff8888' }}>строго запрещено гриферство и PvP</strong> - мы тщательно следим за порядком, чтобы каждый игрок чувствовал себя в безопасности. Нарушители <strong style={{ color: '#ff8888' }}>моментально получают наказание</strong>, а твои постройки надёжно защищены приват-системой.
           </p>
           <p style={{ marginBottom: '0' }}>
-            <strong style={{ color: '#66ddff' }}>Присоединяйся к нам</strong> и стань частью большого и дружного сообщества MineCalypce! Здесь каждый найдет себе занятие по душе — будь то строительство, фермерство, исследование или просто приятное общение.
+            <strong style={{ color: '#66ddff' }}>Присоединяйся к нам</strong> и стань частью большого и дружного сообщества MineCalypce! Здесь каждый найдет себе занятие по душе - будь то строительство, фермерство, исследование или просто приятное общение.
           </p>
         </div>
         
@@ -503,7 +503,7 @@ function AboutPage() {
   }}>
     <div style={{ fontSize: '32px', marginBottom: '6px' }}>🕊️</div>
     <div style={{ color: '#66ddff', fontWeight: 'bold', marginBottom: '4px', fontSize: '15px' }}>Без PvP</div>
-    <div style={{ fontSize: '13px', color: '#88aadd', lineHeight: '1.4' }}>Никаких случайных смертей и драк — только мирное выживание</div>
+    <div style={{ fontSize: '13px', color: '#88aadd', lineHeight: '1.4' }}>Никаких случайных смертей и драк - только мирное выживание</div>
   </div>
   <div style={{ 
     background: 'rgba(50, 150, 255, 0.08)', 
@@ -630,7 +630,7 @@ function HowToPage() {
         <div className="step"><div><span className="step-number">4</span><strong style={{ color: '#66ddff' }}>Играй!</strong></div><div style={{ marginTop: '8px', paddingLeft: '38px' }}>Выбери сервер и нажми <strong style={{ color: '#66ddff' }}>«Подключиться»</strong> 🚀</div></div>
         <div className="step" style={{ borderColor: 'rgba(100, 180, 255, 0.3)', background: 'rgba(50, 150, 255, 0.08)' }}>
           <div><span className="step-number">📌</span><strong style={{ color: '#66ddff' }}>Поддерживаемые версии</strong></div>
-          <div style={{ marginTop: '8px', paddingLeft: '38px', color: '#88ddff' }}><strong>1.18</strong> — <strong>1.21.4</strong><br /><span style={{ fontSize: '12px', color: '#88aadd' }}>(Любая версия в этом диапазоне)</span></div>
+          <div style={{ marginTop: '8px', paddingLeft: '38px', color: '#88ddff' }}><strong>1.18</strong> - <strong>1.21.4</strong><br /><span style={{ fontSize: '12px', color: '#88aadd' }}>(Любая версия в этом диапазоне)</span></div>
         </div>
       </div>
     </div>

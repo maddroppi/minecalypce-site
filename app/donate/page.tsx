@@ -250,13 +250,13 @@ export default function DonatePage() {
           backgroundColor: 'rgba(255, 255, 255, 0.08)',
           backdropFilter: 'blur(15px)',
           borderRadius: '24px',
-          padding: '40px',
+          padding: 'clamp(20px, 4vw, 40px)',
           border: '1px solid rgba(100, 180, 255, 0.3)',
           boxShadow: '0 20px 60px rgba(0, 50, 150, 0.5)'
         }}>
           <h2 style={{
             color: '#66ddff',
-            fontSize: 'clamp(28px, 4vw, 36px)',
+            fontSize: 'clamp(24px, 4vw, 36px)',
             marginBottom: '10px',
             textAlign: 'center'
           }}>💎 Донат</h2>
@@ -264,28 +264,30 @@ export default function DonatePage() {
             color: '#88aadd',
             textAlign: 'center',
             marginBottom: '30px',
-            fontSize: '16px'
+            fontSize: 'clamp(14px, 1.5vw, 16px)'
           }}>
             Поддержи сервер и получи крутые преимущества! 🚀
           </p>
           
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '16px',
           }}>
             {donateItems.map((item, idx) => (
               <div key={idx} style={{
                 background: 'rgba(255, 255, 255, 0.05)',
                 borderRadius: '16px',
-                padding: '24px',
+                padding: '20px',
                 border: `2px solid ${item.color}33`,
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 flexDirection: 'column',
                 animation: 'fadeInUp 0.6s ease-out forwards',
                 opacity: 0,
-                animationDelay: `${idx * 0.05}s`
+                animationDelay: `${idx * 0.05}s`,
+                wordWrap: 'break-word',
+                overflow: 'hidden'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
@@ -298,18 +300,19 @@ export default function DonatePage() {
                 e.currentTarget.style.borderColor = `${item.color}33`;
               }}>
                 <div style={{
-                  fontSize: '24px',
+                  fontSize: 'clamp(18px, 2vw, 24px)',
                   fontWeight: 'bold',
                   textAlign: 'center',
                   marginBottom: '8px',
                   color: item.color,
-                  textShadow: `0 0 20px ${item.color}44`
+                  textShadow: `0 0 20px ${item.color}44`,
+                  wordBreak: 'break-word'
                 }}>
                   {item.isCase ? '🎲' : '💎'} {item.name}
                 </div>
                 <div style={{
                   color: '#ffdd66',
-                  fontSize: '22px',
+                  fontSize: 'clamp(18px, 2vw, 22px)',
                   fontWeight: 'bold',
                   textAlign: 'center',
                   marginBottom: '16px'
@@ -321,16 +324,17 @@ export default function DonatePage() {
                   <div style={{ marginBottom: '12px' }}>
                     <div style={{
                       color: '#88ddff',
-                      fontSize: '13px',
+                      fontSize: 'clamp(12px, 1vw, 13px)',
                       fontWeight: 'bold',
                       marginBottom: '6px'
                     }}>📋 Команды:</div>
                     {item.commands.map((cmd, i) => (
                       <div key={i} style={{
                         color: '#aaddff',
-                        fontSize: '12px',
+                        fontSize: 'clamp(11px, 0.9vw, 12px)',
                         padding: '2px 0',
-                        borderBottom: '1px solid rgba(100, 180, 255, 0.05)'
+                        borderBottom: '1px solid rgba(100, 180, 255, 0.05)',
+                        wordBreak: 'break-word'
                       }}>
                         {cmd}
                       </div>
@@ -341,17 +345,18 @@ export default function DonatePage() {
                 <div style={{ flex: 1 }}>
                   <div style={{
                     color: '#88ddff',
-                    fontSize: '13px',
+                    fontSize: 'clamp(12px, 1vw, 13px)',
                     fontWeight: 'bold',
                     marginBottom: '6px'
                   }}>✨ Возможности:</div>
                   {item.features.map((feature, i) => (
                     <div key={i} style={{
                       color: '#aaddff',
-                      fontSize: '12px',
+                      fontSize: 'clamp(11px, 0.9vw, 12px)',
                       padding: '3px 0',
                       borderBottom: '1px solid rgba(100, 180, 255, 0.05)',
-                      whiteSpace: 'pre-wrap'
+                      whiteSpace: 'pre-wrap',
+                      wordBreak: 'break-word'
                     }}>
                       {feature}
                     </div>
@@ -365,11 +370,12 @@ export default function DonatePage() {
                   border: 'none',
                   padding: '12px',
                   borderRadius: '10px',
-                  fontSize: '16px',
+                  fontSize: 'clamp(14px, 1.2vw, 16px)',
                   fontWeight: 'bold',
                   cursor: 'pointer',
                   transition: 'all 0.3s',
-                  boxShadow: `0 4px 20px ${item.color}44`
+                  boxShadow: `0 4px 20px ${item.color}44`,
+                  width: '100%'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.05)';
@@ -394,12 +400,12 @@ export default function DonatePage() {
             textAlign: 'center',
             border: '1px solid rgba(255, 200, 0, 0.15)'
           }}>
-            <p style={{ color: '#88aadd' }}>
+            <p style={{ color: '#88aadd', fontSize: 'clamp(13px, 1.2vw, 16px)' }}>
               📌 По всем вопросам доната обращайтесь к менеджеру:
             </p>
             <a href="https://t.me/minecalypce_donat" target="_blank" rel="noopener noreferrer" style={{
               color: '#ffdd66',
-              fontSize: '18px',
+              fontSize: 'clamp(16px, 1.5vw, 18px)',
               fontWeight: 'bold',
               textDecoration: 'none'
             }}>

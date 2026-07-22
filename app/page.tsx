@@ -597,7 +597,7 @@ function AboutPage() {
           marginBottom: '20px'
         }}>
           <span style={{ color: '#88aadd' }}>🔄 Поддерживаемые версии Minecraft:</span>
-          <strong style={{ color: '#66ddff', display: 'block', fontSize: '20px', marginTop: '4px' }}>1.18 — 1.21.4</strong>
+          <strong style={{ color: '#66ddff', display: 'block', fontSize: '20px', marginTop: '4px' }}>1.18 - 1.21.4</strong>
           <span style={{ color: '#88aadd', fontSize: '13px' }}>(Любая версия в этом диапазоне)</span>
         </div>
         

@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: 'MineCalypce - Мирное выживание без PvP',
   description: 'Сервер мирного выживания Minecraft. Играй без гриферства и PvP на MineCalypce. Версии 1.18 - 1.21.4.',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

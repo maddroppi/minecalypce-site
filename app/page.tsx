@@ -103,171 +103,196 @@ export default function Home() {
       <canvas ref={canvasRef} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }} />
       
       <nav style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        background: 'rgba(0, 20, 40, 0.85)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(100, 180, 255, 0.2)',
-        padding: '0 20px',
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '64px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => { setCurrentPage('home'); setIsMenuOpen(false); }}>
-            <span style={{ color: '#66ddff', fontSize: '24px', fontWeight: 'bold' }}>MineCalypce</span>
-          </div>
-          
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ display: 'none', background: 'none', border: 'none', color: '#88ddff', fontSize: '28px', cursor: 'pointer' }} className="menu-toggle">
-            ☰
-          </button>
+  position: 'sticky',
+  top: 0,
+  zIndex: 100,
+  background: 'rgba(0, 20, 40, 0.85)',
+  backdropFilter: 'blur(10px)',
+  borderBottom: '1px solid rgba(100, 180, 255, 0.2)',
+  padding: '0 20px',
+}}>
+  <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '64px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => { setCurrentPage('home'); setIsMenuOpen(false); }}>
+      <span style={{ color: '#66ddff', fontSize: '24px', fontWeight: 'bold' }}>MineCalypce</span>
+    </div>
+    
+    {/* КНОПКА БУРГЕРА — ВИДНА ТОЛЬКО НА ТЕЛЕФОНЕ */}
+    <button onClick={() => setIsMenuOpen(!isMenuOpen)} style={{
+      display: 'none',
+      background: 'none',
+      border: 'none',
+      color: '#88ddff',
+      fontSize: '28px',
+      cursor: 'pointer',
+      padding: '4px 8px'
+    }} className="menu-toggle">
+      ☰
+    </button>
 
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }} className="nav-links">
-            {['home', 'about', 'howto', 'rules', 'faq', 'contacts', 'donate'].map((page) => (
-              <button key={page} onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }} style={{
-                background: currentPage === page ? 'rgba(50, 150, 255, 0.2)' : 'transparent',
-                color: currentPage === page ? '#66ddff' : '#88aadd',
-                border: 'none',
-                padding: '8px 16px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontSize: '14px',
-                transition: 'all 0.3s',
-                fontWeight: currentPage === page ? 'bold' : 'normal'
-              }}>
-                {page === 'home' && '🏠 Главная'}
-                {page === 'about' && 'ℹ️ О сервере'}
-                {page === 'howto' && '🎮 Как начать'}
-                {page === 'rules' && '📜 Правила'}
-                {page === 'faq' && '❓ FAQ'}
-                {page === 'contacts' && '📞 Контакты'}
-                {page === 'donate' && '💎 Донат'}
-              </button>
-            ))}
-          </div>
-        </div>
-        {isMenuOpen && (
-          <div style={{ display: 'flex', flexDirection: 'column', padding: '16px', gap: '8px', borderTop: '1px solid rgba(100, 180, 255, 0.1)' }} className="mobile-menu">
-            {['home', 'about', 'howto', 'rules', 'faq', 'contacts', 'donate'].map((page) => (
-              <button key={page} onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }} style={{
-                background: 'transparent',
-                color: '#88aadd',
-                border: 'none',
-                padding: '12px',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                textAlign: 'left',
-                borderBottom: '1px solid rgba(100, 180, 255, 0.05)'
-              }}>
-                {page === 'home' && '🏠 Главная'}
-                {page === 'about' && 'ℹ️ О сервере'}
-                {page === 'howto' && '🎮 Как начать'}
-                {page === 'rules' && '📜 Правила'}
-                {page === 'faq' && '❓ FAQ'}
-                {page === 'contacts' && '📞 Контакты'}
-                {page === 'donate' && '💎 Донат'}
-              </button>
-            ))}
-          </div>
-        )}
-      </nav>
+    {/* ДЕСКТОПНОЕ МЕНЮ */}
+    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }} className="nav-links">
+      {['home', 'about', 'howto', 'rules', 'faq', 'contacts', 'donate'].map((page) => (
+        <button key={page} onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }} style={{
+          background: currentPage === page ? 'rgba(50, 150, 255, 0.2)' : 'transparent',
+          color: currentPage === page ? '#66ddff' : '#88aadd',
+          border: 'none',
+          padding: '8px 16px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '14px',
+          transition: 'all 0.3s',
+          fontWeight: currentPage === page ? 'bold' : 'normal'
+        }}>
+          {page === 'home' && '🏠 Главная'}
+          {page === 'about' && 'ℹ️ О сервере'}
+          {page === 'howto' && '🎮 Как начать'}
+          {page === 'rules' && '📜 Правила'}
+          {page === 'faq' && '❓ FAQ'}
+          {page === 'contacts' && '📞 Контакты'}
+          {page === 'donate' && '💎 Донат'}
+        </button>
+      ))}
+    </div>
+  </div>
+  
+  {/* МОБИЛЬНОЕ МЕНЮ (выезжает по клику на бургер) */}
+  {isMenuOpen && (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '16px',
+      gap: '8px',
+      borderTop: '1px solid rgba(100, 180, 255, 0.1)',
+      background: 'rgba(0, 20, 40, 0.95)'
+    }} className="mobile-menu">
+      {['home', 'about', 'howto', 'rules', 'faq', 'contacts', 'donate'].map((page) => (
+        <button key={page} onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }} style={{
+          background: currentPage === page ? 'rgba(50, 150, 255, 0.2)' : 'transparent',
+          color: currentPage === page ? '#66ddff' : '#88aadd',
+          border: 'none',
+          padding: '12px 16px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '16px',
+          textAlign: 'left',
+          borderBottom: '1px solid rgba(100, 180, 255, 0.05)',
+          width: '100%'
+        }}>
+          {page === 'home' && '🏠 Главная'}
+          {page === 'about' && 'ℹ️ О сервере'}
+          {page === 'howto' && '🎮 Как начать'}
+          {page === 'rules' && '📜 Правила'}
+          {page === 'faq' && '❓ FAQ'}
+          {page === 'contacts' && '📞 Контакты'}
+          {page === 'donate' && '💎 Донат'}
+        </button>
+      ))}
+    </div>
+  )}
+</nav>
 
       <style>{`
-        @media (max-width: 768px) {
-          .nav-links { display: none; }
-          .menu-toggle { display: block !important; }
-          .mobile-menu { display: flex !important; }
-        }
-        @media (min-width: 769px) {
-          .mobile-menu { display: none !important; }
-        }
-        .card-animated {
-          animation: fadeInUp 0.6s ease-out forwards;
-          opacity: 0;
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .modal-overlay {
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(0, 0, 0, 0.7);
-          backdrop-filter: blur(10px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 999;
-          animation: fadeIn 0.3s ease-out;
-          padding: 20px;
-        }
-        .modal-content {
-          background: linear-gradient(135deg, #001a33, #002244);
-          border-radius: 24px;
-          padding: 40px;
-          max-width: 500px;
-          width: 100%;
-          border: 1px solid rgba(100, 180, 255, 0.3);
-          box-shadow: 0 20px 60px rgba(0, 50, 150, 0.5);
-          position: relative;
-          max-height: 90vh;
-          overflow-y: auto;
-        }
-        .modal-close {
-          position: absolute;
-          top: 15px;
-          right: 20px;
-          background: none;
-          border: none;
-          color: #88ddff;
-          font-size: 28px;
-          cursor: pointer;
-          transition: all 0.3s;
-        }
-        .modal-close:hover { transform: rotate(90deg); color: #66ccff; }
-        .step {
-          background: rgba(50, 150, 255, 0.05);
-          padding: 15px;
-          border-radius: 12px;
-          margin-bottom: 12px;
-          border: 1px solid rgba(50, 150, 255, 0.1);
-          text-align: left;
-          color: #aaddff;
-        }
-        .step-number {
-          display: inline-block;
-          background: linear-gradient(135deg, #3399ff, #0066cc);
-          color: white;
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          text-align: center;
-          line-height: 28px;
-          font-weight: bold;
-          margin-right: 10px;
-          font-size: 14px;
-        }
-        .rule-section {
-          background: rgba(50, 150, 255, 0.05);
-          border-radius: 12px;
-          padding: 20px;
-          margin-bottom: 20px;
-          border-left: 3px solid #3399ff;
-        }
-        .rule-item {
-          padding: 8px 0;
-          border-bottom: 1px solid rgba(100, 180, 255, 0.05);
-          color: #aaddff;
-        }
-        .rule-item:last-child { border-bottom: none; }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.8); }
-        }
-      `}</style>
+  @media (max-width: 768px) {
+    .nav-links { 
+      display: none !important; 
+    }
+    .menu-toggle { 
+      display: block !important; 
+    }
+  }
+  @media (min-width: 769px) {
+    .mobile-menu { 
+      display: none !important; 
+    }
+  }
+  .card-animated {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: fadeIn 0.3s ease-out;
+    padding: 20px;
+  }
+  .modal-content {
+    background: linear-gradient(135deg, #001a33, #002244);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgba(100, 180, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 50, 150, 0.5);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #88ddff;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .modal-close:hover { transform: rotate(90deg); color: #66ccff; }
+  .step {
+    background: rgba(50, 150, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(50, 150, 255, 0.1);
+    text-align: left;
+    color: #aaddff;
+  }
+  .step-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #3399ff, #0066cc);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .rule-section {
+    background: rgba(50, 150, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid #3399ff;
+  }
+  .rule-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(100, 180, 255, 0.05);
+    color: #aaddff;
+  }
+  .rule-item:last-child { border-bottom: none; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+`}</style>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', position: 'relative', zIndex: 1 }}>
         {renderPage()}
